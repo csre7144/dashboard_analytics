@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load static  %}
+
+{% block content %}
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print ">
+         <section class="sidebar" id="sidebar-scroll">
+            <!-- Sidebar Menu-->
+            <ul class="sidebar-menu">
+               <li class="treeview">
+                  <a class="waves-effect waves-dark" href="{% url 'home' %}">
+                     <i class="icon-speedometer"></i><span> Dashboard</span>
+                  </a>                
+               </li>
+                
+               <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Customer Reports</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                     <li><a class="waves-effect waves-dark" href="{% url 'customerform' %}"><i class="icon-arrow-right"></i> Customer Register</a></li>
+                     
+                     <li><a class="waves-effect waves-dark" href="{% url 'customer_table' %}"><i class="icon-arrow-right"></i>  Customer Data</a></li>
+
+                     <li><a class="waves-effect waves-dark" href="{% url 'user_data' %}"><i class="icon-arrow-right"></i>  Register Data</a></li>
+
+                  </ul>
+               </li>
+                
+               <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Report Payment</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                     <li><a class="waves-effect waves-dark" href="{% url 'earningCustomer' %}"><i class="icon-arrow-right"></i> Total Earning</a></li>
+                     
+                     <li><a class="waves-effect waves-dark" href="{% url 'registerearning' %}"><i class="icon-arrow-right"></i>  Register Earning</a></li>
+   
+                  </ul>
+               </li>
+               
+            </ul>
+         </section>
+      </aside>
+      
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <div class="container-fluid">
+            <!-- Main content starts -->
+            <div>
+               <!-- Row Starts -->
+               <div class="row">
+                  <div class="col-sm-12 p-0">
+                     <div class="main-header">
+                        <h4>Profile Details</h4>
+                     </div>
+                  </div>
+               </div>
+               <!-- Row end -->
+                  <!--Horizontal Form starts-->
+                  <div class="col-lg-12">
+                     <div class="card">
+                        <div class="card-block">
+                           <form>
+                              <div class="form-group row">
+                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">First Name</label>
+                                 <div class="col-sm-10">
+                                    
+                                    <input class="form-control" type="text" value=" {{user.first_name}} " id="example-text-input"> 
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Last Name</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="text" value=" {{user.last_name}} " id="example-text-input">
+                                 </div>
+                              </div>
+                              
+                              <div class="form-group row">
+                                 <label for="example-email-input" class="col-xs-2 col-form-label form-control-label">Username</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="username" value=" {{user.username}} " id="example-username-input">
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label for="example-email-input" class="col-xs-2 col-form-label form-control-label">Email</label>
+                                 <div class="col-sm-10">
+                                    <input class="form-control" type="email" value=" {{user.email}} " id="example-email-input">
+                                 </div>
+                              </div>
+                              {% if profile %}
+                              <div class="form-group row">
+                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">City</label>
+                                 <div class="col-sm-10">
+                                    
+                                    <input class="form-control" type="text" value=" {{profile.address}} " id="example-text-input"> 
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Gender</label>
+                                 <div class="col-sm-10">
+                                    
+                                    <input class="form-control" type="text" value=" {{profile.gender}} " id="example-text-input"> 
+                                 </div>
+                              </div>
+
+                              <div class="form-group row">
+                                 <label for="example-text-input" class="col-xs-2 col-form-label form-control-label">Pincode</label>
+                                 <div class="col-sm-10">
+                                    
+                                    <input class="form-control" type="text" value=" {{profile.pincode}} " id="example-text-input"> 
+                                 </input>
+                              </div>
+                              {% endif %}
+                              
+                              
+                              
+                           </form>
+                        </div>
+
+                        
+                        {% comment %} <div class="col-md-9">
+                           <a href="{% url 'customer_table' %}"><button type="submit" class="btn btn-primary waves-effect waves-light m-r-30">Back to Customer Data</button></a>
+                        </div> {% endcomment %}
+                     </div>
+                  </div>
+                  <!--Horizontal Form ends-->
+               </div>
+            </div>
+            <!-- Main content ends -->
+         </div>
+         <!-- Container-fluid ends -->
+      </div>
+   </div>
+
+
+   
+
+
+<script type="text/javascript">
+   SyntaxHighlighter.all();
+</script>
+{% endblock %}

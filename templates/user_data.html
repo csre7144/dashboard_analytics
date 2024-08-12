@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% load static  %}
+
+{% block content %}
+      <!-- Side-Nav-->
+      <aside class="main-sidebar hidden-print ">
+         <section class="sidebar" id="sidebar-scroll">
+            <!-- Sidebar Menu-->
+            <ul class="sidebar-menu">
+               <li class="treeview">
+                  <a class="waves-effect waves-dark" href="{% url 'home' %}">
+                     <i class="icon-speedometer"></i><span> Dashboard</span>
+                  </a>                
+               </li>
+                
+               <li class="active treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Customer Reports</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                     <li><a class="waves-effect waves-dark" href="{% url 'customerform' %}"><i class="icon-arrow-right"></i> Customer Register</a></li>
+                     
+                     <li><a class="waves-effect waves-dark" href="{% url 'customer_table' %}"><i class="icon-arrow-right"></i>  Customer Data</a></li>
+                  </ul>
+               </li>
+                
+               
+            </ul>
+         </section>
+      </aside>
+      
+      <div class="content-wrapper">
+         <!-- Container-fluid starts -->
+         <div class="container-fluid">
+
+            <!-- Header Starts -->
+            <div class="row">
+               <div class="col-sm-12 p-0">
+                  <div class="main-header">
+                     <h4>Register Form Data</h4>
+                     
+                  </div>
+               </div>
+            </div>
+            <!-- Header end -->
+
+            <!-- Tables start -->
+            <!-- Row start -->
+            <!-- Hover effect table starts -->
+            <div class="card">
+
+               <div class="card-block">
+                  <div class="row">
+                     <div class="col-12 table-responsive">
+                        <table class="table">
+                           
+                           <thead>
+                             <tr>
+                               <th scope="col">ID</th>
+                               <th scope="col">Username</th>
+                               <th scope="col">Email</th>
+                               <th scope="col">First Name</th>
+                               <th scope="col">Last Name</th>
+                             </tr>
+                           </thead>
+                           <tbody>
+                              {% for data in form %}
+                             <tr>
+
+                               <th scope="row"> {{data.id}} </th>
+                               <td> {{data.username}} </td>
+                               <td> {{data.email}} </td>
+                               <td> {{data.first_name}} </td>
+                               <td> {{data.last_name}} </td>
+                             </tr>
+                             
+                           </tbody>
+                           {% endfor %}
+                         </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            
+            <!-- Hover effect table ends -->
+            <!-- Row end -->
+            <!-- Tables end -->
+         </div>
+      </div>
+   </div>
+{% endblock %}
