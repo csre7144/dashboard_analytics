@@ -46,6 +46,12 @@
                   <i class="icon-speedometer"></i><span> JSON Data</span>
                </a>                
             </li>
+
+            <li class="treeview">
+               <a class="waves-effect waves-dark" href="{% url 'socical_media' %}">
+                  <i class="icon-speedometer"></i><span> Social Media </span>
+               </a>                
+            </li>
             
 
             {% comment %} <li class="treeview">
@@ -101,9 +107,9 @@
             </div>
             <div class="col-lg-3 col-md-6">
                <div class="card dashboard-product">
-                  <span>Products</span>
-                  <h2 class="dashboard-total-products">$<span>30,780</span></h2>
-                  <span class="label label-danger">Sales</span>Reviews
+                  <span>Social Data</span>
+                  <h2 class="dashboard-total-products">$<span> {{data3}} </span></h2>
+                  <span class="label label-danger"> <a href="{% url 'socical_media' %}"> View</a> </span>
                   <div class="side-box">
                      <i class="ti-rocket text-danger-color"></i>
                   </div>

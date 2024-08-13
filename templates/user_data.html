@@ -21,6 +21,36 @@
                      <li><a class="waves-effect waves-dark" href="{% url 'customer_table' %}"><i class="icon-arrow-right"></i>  Customer Data</a></li>
                   </ul>
                </li>
+
+               <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Report Payment</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                     <li><a class="waves-effect waves-dark" href="{% url 'earningCustomer' %}"><i class="icon-arrow-right"></i> Total Earning</a></li>
+                     
+                     <li><a class="waves-effect waves-dark" href="{% url 'registerearning' %}"><i class="icon-arrow-right"></i>  Register Earning</a></li>
+      
+                  </ul>
+               </li>
+      
+               <li class=" treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-book-open"></i><span> Categories</span><i class="icon-arrow-down"></i></a>
+                  <ul class="treeview-menu">
+                     <li><a class="waves-effect waves-dark" href="{% url 'category_register' %}"><i class="icon-arrow-right"></i> Category Register</a></li>
+                     
+                     <li><a class="waves-effect waves-dark" href="{% url 'category_show' %}"><i class="icon-arrow-right"></i>  Categories Data</a></li>
+      
+                  </ul>
+               </li>
+      
+               <li class="treeview">
+                  <a class="waves-effect waves-dark" href="{% url 'customer_table_data_json' %}">
+                     <i class="icon-speedometer"></i><span> JSON Data</span>
+                  </a>                
+               </li>
+      
+               <li class="treeview">
+                  <a class="waves-effect waves-dark" href="{% url 'socical_media' %}">
+                     <i class="icon-speedometer"></i><span> Social Media </span>
+                  </a>                
+               </li>
                 
                
             </ul>
