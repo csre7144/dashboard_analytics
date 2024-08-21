@@ -193,8 +193,35 @@ def deleteCustomer(request, pk):
 
 @login_required
 def user_data(request):
-      form = User.objects.all()
-      return render(request, 'user_data.html', {'form': form})
+      form = RegisterForm()
+      data = User.objects.all()
+      if request.method == 'POST':
+            form = RegisterForm(request.POST)
+            
+            if form.is_valid():
+                  username = form.cleaned_data['username']
+            
+                  if User.objects.filter(username=username).exists():
+                        messages.error(request, 'Username already taken. Please choose a different username.')
+                  else:
+                        user = User.objects.create_user(
+                              username=username,
+                              password=form.cleaned_data.get['password1'],
+                              email=form.cleaned_data.get['email'],
+                              first_name=form.cleaned_data.get['first_name'],
+                              last_name=form.cleaned_data.get['last_name'],
+                        )
+                        user.is_staff = form.cleaned_data.get('is_staff', False)
+                        user.is_active = form.cleaned_data.get('is_active', True)
+                        user.is_superuser = form.cleaned_data.get('is_superuser', False)
+                        user.save()
+                        messages.success(request, 'Your registration was successfully saved.')
+                        return redirect('userdata')
+            else:
+                  print(form.errors)
+
+      context = {'form': form, 'data': data}
+      return render(request, 'user_data.html', context)
 
 @login_required
 def earningCustomer(request):

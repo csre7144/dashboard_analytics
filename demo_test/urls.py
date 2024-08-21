@@ -31,6 +31,6 @@ urlpatterns = [
     path('customer_table_data_json/', views.customer_table_data_json, name='customer_table_data_json'),
     path('app/customer_table_data/', views.customer_table_data, name='customer_table_data'),
     path('socical_media/', views.socical_media, name='socical_media'),
-    # path('socical_media/<int:pk>', views.socical_media, name='socical_media'),
+    # path('userdata/', views.userdata, name='userdata'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
