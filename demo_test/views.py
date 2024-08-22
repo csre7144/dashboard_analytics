@@ -10,6 +10,7 @@ from categories.models import category, product
 from django.http.response import JsonResponse, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm , AuthenticationForm
+from .utils import get_plot
 
 
 # Create your views here.
@@ -24,10 +25,14 @@ def home(request):
 
       data2 = EarnCustomer.objects.all()
       total = data2.aggregate(total_price=Sum('price'))['total_price']
+
+      x = [x.fname for x in data2]
+      y = [y.price for y in data2]
+      chart = get_plot(x,y)
       
       data3 = social_media_data.objects.all().count()
       
-      context = {'data': data, 'data1': data1, 'total': total, 'data3':data3}
+      context = {'data': data, 'data1': data1, 'total': total, 'data3':data3, 'chart': chart, 'data2': data2}
       return render(request, 'index.html', context)
 
 @login_required
