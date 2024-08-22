@@ -137,9 +137,22 @@ LOGIN_URL = 'signin_view'
 
 
 #SMTP Configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'stmp.gmail.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = 'chintu81400@gmail.com'
+    EMAIL_HOST_PASSWORD = 'chintu@7010'
+
+else:
+    EMAIL_BACKEND = (
+        "django.core.mail.backends.console.EmailBackend"
+    )
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = 'stmp.gmail.com'
 # EMAIL_PORT = 587
 # EMAIL_USE_TLS = True
 # EMAIL_HOST_USER = 'chintu81400@gmail.com'
-# EMAIL_HOST_PASSWORD = 'chintu@7010'
+# EMAIL_HOST_PASSWORD = '-----'
